@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30626.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captricity.API", "Captricity.API/Captricity.API.csproj", "{A9722D9E-A548-4125-AB36-D91C2B9077CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captricity.API", "Captricity.API\Captricity.API.csproj", "{A9722D9E-A548-4125-AB36-D91C2B9077CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captricity.API.Tests", "Captricity.API.Tests\Captricity.API.Tests.csproj", "{5EE83CB9-8E0E-407D-B9C7-892C388C454F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A9722D9E-A548-4125-AB36-D91C2B9077CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9722D9E-A548-4125-AB36-D91C2B9077CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9722D9E-A548-4125-AB36-D91C2B9077CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE83CB9-8E0E-407D-B9C7-892C388C454F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE83CB9-8E0E-407D-B9C7-892C388C454F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE83CB9-8E0E-407D-B9C7-892C388C454F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE83CB9-8E0E-407D-B9C7-892C388C454F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

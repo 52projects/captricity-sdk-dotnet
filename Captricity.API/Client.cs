@@ -4,11 +4,14 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace Captricity.API {
     public class Client {
         private const string _apiUrl = "https://shreddr.captricity.com/api";
-        
+
         private readonly string _apiToken;
         private readonly string _userAgent;
         private readonly RestClient _client;
@@ -87,32 +90,27 @@ namespace Captricity.API {
 
             return Go<T>(string.Format(obj.ResourceDefinition.SingleUrl, id), Method.DELETE);
         }
+    }
 
-        public abstract class ApiResource {
-            internal abstract ApiResourceDefinition ResourceDefinition { get; }
-            public int ID { get; set; }
-        }
+    public abstract class ApiResource {
+        internal abstract ApiResourceDefinition ResourceDefinition { get; }
+        [DataMember(Name = "id")]
+        public int ID { get; set; }
+    }
 
-        public enum ApiResourceActions {
-            List, Get, Post, Put, Delete
-        }
+    public enum ApiResourceActions {
+        List, Get, Post, Put, Delete
+    }
 
-        internal abstract class ApiResourceDefinition {
-            public abstract ApiResourceActions[] AllowedMethods { get; }
-            public abstract string ListUrl { get; }
-            public abstract string SingleUrl { get; }
-        }
+    internal abstract class ApiResourceDefinition {
+        public abstract ApiResourceActions[] AllowedMethods { get; }
+        public abstract string ListUrl { get; }
+        public abstract string SingleUrl { get; }
+    }
 
-        internal class BatchDefinition : ApiResourceDefinition {
-            public override ApiResourceActions[] AllowedMethods { get { return new ApiResourceActions[] { ApiResourceActions.List, ApiResourceActions.Get, ApiResourceActions.Post, ApiResourceActions.Put, ApiResourceActions.Delete }; } }
-            public override string ListUrl { get { return "/v1/batch"; } }
-            public override string SingleUrl { get { return "/v1/batch/{0}"; } }
-        }
-
-        public class Batch : ApiResource {
-            internal override ApiResourceDefinition ResourceDefinition { get { return new BatchDefinition(); } }
-        }
-
-        //get, post, put, delete
+    internal class BatchDefinition : ApiResourceDefinition {
+        public override ApiResourceActions[] AllowedMethods { get { return new ApiResourceActions[] { ApiResourceActions.List, ApiResourceActions.Get, ApiResourceActions.Post, ApiResourceActions.Put, ApiResourceActions.Delete }; } }
+        public override string ListUrl { get { return "/v1/batch"; } }
+        public override string SingleUrl { get { return "/v1/batch/{0}"; } }
     }
 }
