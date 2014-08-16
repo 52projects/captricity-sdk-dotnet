@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
 namespace Captricity.API.Model {
+    /// <summary>
+    /// Defines a document definition from Captricity
+    /// </summary>
     [DataContract(Name = "document")]
     public class Document {
         public Document() {
