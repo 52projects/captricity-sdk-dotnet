@@ -12,6 +12,7 @@ namespace Captricity.API {
 
         #region ApiSets
         public Captricity.API.Sets.BatchSet Batches { get; set; }
+        public Captricity.API.Sets.BatchFileSet BatchFiles { get; set; }
         #endregion ApiSets
 
         /// <summary>
@@ -25,6 +26,7 @@ namespace Captricity.API {
             headers.Add("Captricity-API-Token", apiToken);
 
             Batches = new Sets.BatchSet(headers, _apiUrl);
+            BatchFiles = new Sets.BatchFileSet(headers, _apiUrl);
         }
 
         #region Commented Methods

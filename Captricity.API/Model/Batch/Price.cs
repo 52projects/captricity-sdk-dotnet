@@ -1,13 +1,10 @@
 ﻿using System.Runtime.Serialization;
-using Captricity.API.Definition;
 
-namespace Captricity.API.Model {
+namespace Captricity.API.Model.Batch {
     [DataContract]
-    public class BatchPrice : ApiResource {
-        public BatchPrice() {
+    public class Price : ApiResource {
+        public Price() {
         }
-
-        internal override ApiResourceDefinition ResourceDefinition { get { return new BatchPriceDefinition(); } }
 
         /// <summary>
         /// Total batch cost in Captricity fields: 

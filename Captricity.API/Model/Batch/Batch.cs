@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Captricity.API.Definition;
 
-namespace Captricity.API.Model {
+namespace Captricity.API.Model.Batch {
     /// <summary>
     /// Defines a batch from Captricity
     /// </summary>
@@ -12,8 +11,6 @@ namespace Captricity.API.Model {
         public Batch() {
             this.Documents = new List<Document>();
         }
-
-        internal override ApiResourceDefinition ResourceDefinition { get { return new BatchDefinition(); } }
 
         #region Properties
         /// <summary>
@@ -100,7 +97,7 @@ namespace Captricity.API.Model {
         [DataMember(Name = "reject_reasons")]
         public List<string> RejectReasons { get; set; }
 
-        public BatchPrice Price { get; set; }
+        public Price Price { get; set; }
 
         #endregion Properties
     }

@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace Captricity.API.Tests.Integration.Batch {
     [TestFixture]
-    public class BatchTests {
+    public class BatchFileTests {
         private Captricity.API.Client _client;
 
         [TestFixtureSetUp]
@@ -19,9 +19,9 @@ namespace Captricity.API.Tests.Integration.Batch {
         }
 
         [Test]
-        public void integration_batches_list_batches() {
+        public void integration_batch_files_list_files() {
             var batches = _client.Batches.List();
-            batches.Count.ShouldBeGreaterThan(0);
+            var batchFiles = _client.BatchFiles.List(batches[0].ID.ToString());
         }
 
         [Test]

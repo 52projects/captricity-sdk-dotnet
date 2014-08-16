@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Captricity.API.Model {
+namespace Captricity.API.Model.Batch {
     /// <summary>
     /// Defines a document definition from Captricity
     /// </summary>

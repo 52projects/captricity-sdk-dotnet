@@ -59,12 +59,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Integration\Batch\BatchFileTests.cs" />
     <Compile Include="Integration\Batch\BatchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="testfile.pdf" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

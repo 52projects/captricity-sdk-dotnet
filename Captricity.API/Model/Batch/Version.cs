@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace Captricity.API.Model {
+namespace Captricity.API.Model.Batch {
     [DataContract(Name = "version")]
     public class Version {
         [DataMember(Name = "document_name")]
