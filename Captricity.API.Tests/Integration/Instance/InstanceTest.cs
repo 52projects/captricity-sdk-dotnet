@@ -23,28 +23,33 @@ namespace Captricity.API.Tests.Integration.Instance {
             var jobs = _client.Jobs.List();
             var job = _client.Jobs.Get(jobs[0].ID.ToString());
 
-            var instances = _client.Instances.List(job.ID.ToString());
-            instances.ShouldNotBe(null);
+            var instances = _client.InstanceSets.List(job.ID.ToString());
+
+            instances.Count.ShouldBeGreaterThan(0);
         }
 
         [Test]
-        public void integration_instances_get_instance_for_job() {
+        public void integration_instances_get_instance_set_instances() {
             var jobs = _client.Jobs.List();
             var job = _client.Jobs.Get(jobs[0].ID.ToString());
 
-            var instances = _client.Instances.List(job.ID.ToString());
-            var instance = _client.Instances.Get(instances[0].ID.ToString());
+            var instanceSets = _client.InstanceSets.List(job.ID.ToString());
+
+            var instances  = _client.InstanceSets.GetInstancesetInstances(instanceSets[0].ID);
         }
 
         [Test]
-        public void integration_instances_get_instance_pages() {
+        public void integration_instances_get_instance() {
             var jobs = _client.Jobs.List();
             var job = _client.Jobs.Get(jobs[0].ID.ToString());
 
-            var instances = _client.Instances.List(job.ID.ToString());
-            var instance = _client.Instances.Get(instances[0].ID.ToString());
+            var instanceSets = _client.InstanceSets.List(job.ID.ToString());
 
-            var pages = _client.Instances.GetInstancePages(instance.ID);
+            var instances = _client.InstanceSets.GetInstancesetInstances(instanceSets[0].ID);
+
+            var instance = _client.InstanceSets.GetInstance(instances[0].ID);
+
+            instance.ShouldNotBe(null);
         }
     }
 }

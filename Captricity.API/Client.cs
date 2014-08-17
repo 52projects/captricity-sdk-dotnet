@@ -46,13 +46,24 @@ namespace Captricity.API {
         }
 
         private Captricity.API.Sets.InstanceSet _instances = null;
-        public Captricity.API.Sets.InstanceSet Instances {
+        public Captricity.API.Sets.InstanceSet InstanceSets {
             get {
                 if (_instances == null) {
                     _instances = new Sets.InstanceSet(_headers, _apiUrl);
                 }
 
                 return _instances;
+            }
+        }
+
+        private Captricity.API.Sets.ShredSet _shreds = null;
+        public Captricity.API.Sets.ShredSet Shreds {
+            get {
+                if (_shreds == null) {
+                    _shreds = new Sets.ShredSet(_headers, _apiUrl);
+                }
+
+                return _shreds;
             }
         }
         #endregion ApiSets
