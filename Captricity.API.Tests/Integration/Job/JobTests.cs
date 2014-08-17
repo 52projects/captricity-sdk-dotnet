@@ -30,5 +30,14 @@ namespace Captricity.API.Tests.Integration.Batch {
             var job = _client.Jobs.Get(jobs[0].ID.ToString());
             job.ShouldNotBe(null);
         }
+
+        [Test]
+        public void integration_job_get_csv() {
+            var jobs = _client.Jobs.List();
+            var job = _client.Jobs.Get(jobs[0].ID.ToString());
+            var results = _client.Jobs.GetJobResults(job.ID);
+
+            results.ShouldNotBe(null);
+        }
     }
 }

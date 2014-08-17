@@ -26,5 +26,25 @@ namespace Captricity.API.Tests.Integration.Instance {
             var instances = _client.Instances.List(job.ID.ToString());
             instances.ShouldNotBe(null);
         }
+
+        [Test]
+        public void integration_instances_get_instance_for_job() {
+            var jobs = _client.Jobs.List();
+            var job = _client.Jobs.Get(jobs[0].ID.ToString());
+
+            var instances = _client.Instances.List(job.ID.ToString());
+            var instance = _client.Instances.Get(instances[0].ID.ToString());
+        }
+
+        [Test]
+        public void integration_instances_get_instance_pages() {
+            var jobs = _client.Jobs.List();
+            var job = _client.Jobs.Get(jobs[0].ID.ToString());
+
+            var instances = _client.Instances.List(job.ID.ToString());
+            var instance = _client.Instances.Get(instances[0].ID.ToString());
+
+            var pages = _client.Instances.GetInstancePages(instance.ID);
+        }
     }
 }
