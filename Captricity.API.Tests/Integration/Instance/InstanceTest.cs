@@ -8,9 +8,9 @@ using NUnit.Framework;
 using Captricity.API;
 using System.Configuration;
 
-namespace Captricity.API.Tests.Integration.Batch {
+namespace Captricity.API.Tests.Integration.Instance {
     [TestFixture]
-    public class JobTests {
+    public class InstanceTest {
         private Captricity.API.Client _client;
 
         [TestFixtureSetUp]
@@ -19,16 +19,12 @@ namespace Captricity.API.Tests.Integration.Batch {
         }
 
         [Test]
-        public void integration_job_list_jobs() {
-            var jobs = _client.Jobs.List();
-            jobs.ShouldNotBe(null);
-        }
-
-        [Test]
-        public void integration_job_get_job() {
+        public void integration_instances_get_instances_for_job() {
             var jobs = _client.Jobs.List();
             var job = _client.Jobs.Get(jobs[0].ID.ToString());
-            job.ShouldNotBe(null);
+
+            var instances = _client.Instances.List(job.ID.ToString());
+            instances.ShouldNotBe(null);
         }
     }
 }

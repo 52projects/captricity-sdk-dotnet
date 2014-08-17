@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="Integration\Batch\BatchFileTests.cs" />
     <Compile Include="Integration\Batch\BatchTests.cs" />
+    <Compile Include="Integration\Instance\InstanceTest.cs" />
+    <Compile Include="Integration\Job\JobTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

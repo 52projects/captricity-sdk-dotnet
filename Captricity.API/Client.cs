@@ -44,6 +44,17 @@ namespace Captricity.API {
                 return _jobs;
             }
         }
+
+        private Captricity.API.Sets.InstanceSet _instances = null;
+        public Captricity.API.Sets.InstanceSet Instances {
+            get {
+                if (_instances == null) {
+                    _instances = new Sets.InstanceSet(_headers, _apiUrl);
+                }
+
+                return _instances;
+            }
+        }
         #endregion ApiSets
 
         /// <summary>
