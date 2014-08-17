@@ -71,7 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sets\BatchFileSet.cs" />
     <Compile Include="Sets\BatchSet.cs" />
+    <Compile Include="Sets\BoxSet.cs" />
     <Compile Include="Sets\DocumentSet.cs" />
+    <Compile Include="Sets\FieldSet.cs" />
     <Compile Include="Sets\InstanceSet.cs" />
     <Compile Include="Sets\JobSet.cs" />
     <Compile Include="Sets\SheetSet.cs" />

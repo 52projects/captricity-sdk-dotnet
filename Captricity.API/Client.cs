@@ -66,6 +66,53 @@ namespace Captricity.API {
                 return _shreds;
             }
         }
+
+
+        private Captricity.API.Sets.DocumentSet _documents = null;
+        public Captricity.API.Sets.DocumentSet Documents {
+            get {
+                if (_documents == null) {
+                    _documents = new Sets.DocumentSet(_headers, _apiUrl);
+                }
+
+                return _documents;
+            }
+        }
+
+        private Captricity.API.Sets.SheetSet _sheets = null;
+        public Captricity.API.Sets.SheetSet Sheets {
+            get {
+                if (_sheets == null) {
+                    _sheets = new Sets.SheetSet(_headers, _apiUrl);
+                }
+
+                return _sheets;
+            }
+        }
+
+
+        private Captricity.API.Sets.FieldSet _fields = null;
+        public Captricity.API.Sets.FieldSet Fields {
+            get {
+                if (_fields == null) {
+                    _fields = new Sets.FieldSet(_headers, _apiUrl);
+                }
+
+                return _fields;
+            }
+        }
+
+
+        private Captricity.API.Sets.BoxSet _boxes = null;
+        public Captricity.API.Sets.BoxSet Boxes {
+            get {
+                if (_boxes == null) {
+                    _boxes = new Sets.BoxSet(_headers, _apiUrl);
+                }
+
+                return _boxes;
+            }
+        }
         #endregion ApiSets
 
         /// <summary>

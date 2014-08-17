@@ -59,11 +59,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Integration\Batch\BatchFileTests.cs" />
-    <Compile Include="Integration\Batch\BatchTests.cs" />
-    <Compile Include="Integration\Instance\InstanceTest.cs" />
-    <Compile Include="Integration\Job\JobTests.cs" />
-    <Compile Include="Integration\Shred\ShredTest.cs" />
+    <Compile Include="Integration\BatchFileTests.cs" />
+    <Compile Include="Integration\BatchTests.cs" />
+    <Compile Include="Integration\BoxTests.cs" />
+    <Compile Include="Integration\DocumentTests.cs" />
+    <Compile Include="Integration\FieldTests.cs" />
+    <Compile Include="Integration\InstanceTest.cs" />
+    <Compile Include="Integration\JobTests.cs" />
+    <Compile Include="Integration\SheetTests.cs" />
+    <Compile Include="Integration\ShredTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
