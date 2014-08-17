@@ -9,10 +9,41 @@ using System.Collections.Generic;
 namespace Captricity.API {
     public class Client {
         private const string _apiUrl = "https://shreddr.captricity.com/api";
+        private Dictionary<string, string> _headers;
 
         #region ApiSets
-        public Captricity.API.Sets.BatchSet Batches { get; set; }
-        public Captricity.API.Sets.BatchFileSet BatchFiles { get; set; }
+        private Captricity.API.Sets.BatchSet _batches = null;
+        public Captricity.API.Sets.BatchSet Batches {
+            get {
+                if (_batches == null) {
+                    _batches = new Sets.BatchSet(_headers, _apiUrl);
+                }
+
+                return _batches;
+            }
+        }
+
+        private Captricity.API.Sets.BatchFileSet _batchFiles = null;
+        public Captricity.API.Sets.BatchFileSet BatchFiles {
+            get {
+                if (_batchFiles == null) {
+                    _batchFiles = new Sets.BatchFileSet(_headers, _apiUrl);
+                }
+
+                return _batchFiles;
+            }
+        }
+
+        private Captricity.API.Sets.JobSet _jobs = null;
+        public Captricity.API.Sets.JobSet Jobs {
+            get {
+                if (_jobs == null) {
+                    _jobs = new Sets.JobSet(_headers, _apiUrl);
+                }
+
+                return _jobs;
+            }
+        }
         #endregion ApiSets
 
         /// <summary>
@@ -21,12 +52,9 @@ namespace Captricity.API {
         /// <param name="apiToken">The API token provided by Captricity</param>
         /// <param name="userAgent">The Application user agent found https://shreddr.captricity.com/developer </param>
         public Client(string apiToken, string userAgent) {
-            Dictionary<string, string> headers = new Dictionary<string,string>();
-            headers.Add("User-Agent", userAgent);
-            headers.Add("Captricity-API-Token", apiToken);
-
-            Batches = new Sets.BatchSet(headers, _apiUrl);
-            BatchFiles = new Sets.BatchFileSet(headers, _apiUrl);
+            _headers = new Dictionary<string,string>();
+            _headers.Add("User-Agent", userAgent);
+            _headers.Add("Captricity-API-Token", apiToken);
         }
 
         #region Commented Methods

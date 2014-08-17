@@ -7,6 +7,8 @@ using Shouldly;
 using NUnit.Framework;
 using Captricity.API;
 using System.Configuration;
+using Captricity.API.Model.Batch;
+using System.IO;
 
 namespace Captricity.API.Tests.Integration.Batch {
     [TestFixture]
@@ -25,33 +27,18 @@ namespace Captricity.API.Tests.Integration.Batch {
         }
 
         [Test]
-        public void integration_batches_get_batch() {
+        public void integration_batch_files_upload_file() {
             var batches = _client.Batches.List();
-            var batch = _client.Batches.Get(batches[0].ID.ToString());
+            var batchFile = new BatchFileUpload();
 
-            batch.Name.ShouldBe(batches[0].Name);
-        }
+            using (FileStream fileStream = new FileStream(@"D:\dev\captricity-api-wrapper\Captricity.API.Tests\testfile.pdf", FileMode.Open, FileAccess.Read)) {
+                using (var memory = new MemoryStream()) {
+                    fileStream.CopyTo(memory);
+                    batchFile.UploadedFile = memory.ToArray();
 
-        [Test]
-        public void integration_batches_get_batch_price() {
-            var batches = _client.Batches.List();
-            var batch = _client.Batches.Get(batches[0].ID, true);
-
-            batch.Price.TotalBatchCostInFields.ShouldBe(80);
-            batch.Price.UserSubscriptionFieldsPerMonth.ShouldBe(200);
-        }
-
-        [Test]
-        public void integration_batches_submit_batch() {
-
-        }
-
-        [Test]
-        public void integration_bateches_get_readiness() {
-            var batches = _client.Batches.List();
-            var readiness = _client.Batches.GetBatchReadiness(batches[0].ID);
-
-            readiness.ShouldNotBe(null);
+                    _client.BatchFiles.Create(batches[0].ID, memory, "testcard.pdf");
+                }
+            }
         }
     }
 }

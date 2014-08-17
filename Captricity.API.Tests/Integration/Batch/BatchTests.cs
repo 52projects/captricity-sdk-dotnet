@@ -43,7 +43,9 @@ namespace Captricity.API.Tests.Integration.Batch {
 
         [Test]
         public void integration_batches_submit_batch() {
+            var batches = _client.Batches.List();
 
+            var submitStatus = _client.Batches.SubmitBatch(batches[0].ID);
         }
 
         [Test]

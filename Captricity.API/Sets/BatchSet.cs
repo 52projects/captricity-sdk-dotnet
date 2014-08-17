@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Restify;
 using Captricity.API.Model.Batch;
+using RestSharp;
 
 namespace Captricity.API.Sets {
     public class BatchSet : ApiSet<Batch> {
@@ -31,6 +32,26 @@ namespace Captricity.API.Sets {
 
         public Readiness GetBatchReadiness(int id) {
             return base.GetBySuffixUrl<Readiness>(string.Format(READINESS_URL, id.ToString()));
+        }
+
+        public bool SubmitBatch(int id) {
+            var response = base.Post(string.Format(SUBMIT_URL, id));
+
+            var readiness = Newtonsoft.Json.JsonConvert.DeserializeObject<Readiness>(response.Content);
+
+            if (readiness != null) {
+                if (readiness.Errors.Count > 0) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+            else {
+                return true;
+            }
+
+            return false;
         }
     }
 }
