@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Restify;
-using Captricity.API.Model.Shreds;
+using Captricity.API.Model;
 using RestSharp;
 
 

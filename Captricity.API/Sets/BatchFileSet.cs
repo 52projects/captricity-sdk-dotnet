@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Restify;
-using Captricity.API.Model.Batch;
+using Captricity.API.Model;
 using System.IO;
 
 namespace Captricity.API.Sets {
