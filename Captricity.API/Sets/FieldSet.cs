@@ -16,7 +16,7 @@ namespace Captricity.API.Sets {
         public FieldSet(IDictionary<string, string> headers, string baseURl) : base(headers, baseURl, ContentType.JSON) { }
 
         protected override string GetUrl { get { return GET_URL; } }
-        protected override string GetChildListUrl  { get { return GET_URL; } }
-        protected override string GetChildUrl { get { return GET_URL; } }
+        protected override string GetChildListUrl { get { return CHILD_LIST_URL; } }
+        protected override string GetChildUrl { get { return CHILD_GET_URL; } }
     }
 }

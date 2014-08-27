@@ -8,8 +8,8 @@ using Captricity.API.Model;
 using RestSharp;
 namespace Captricity.API.Sets {
    public  class BoxSet : ApiSet<Box> {
-               private const string LIST_URL = "/v1/batch";
-        private const string GET_URL = "/v1/batch/{0}";
+               private const string LIST_URL = "/v1/box";
+        private const string GET_URL = "/v1/box/{0}";
         private const string SUBMIT_URL = "/v1/batch/{0}/submit";
         private const string PRICE_URL = "/v1/batch/{0}/price";
         private const string READINESS_URL = "/v1/batch/{0}/readiness";
