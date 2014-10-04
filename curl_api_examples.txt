@@ -1,0 +1,38 @@
+Test account
+user: ajr+test@captricity.com
+pass: Fun12345
+
+
+
+Upload a sheet
+curl -X POST -H "Captricity-API-Token: ef17fb42fc0a47d88cd312018bfcb530" -F image_file=@bs2-0-1.png https://shreddr.captricity.com/api/v1/document/31071/sheet/
+
+
+
+Create a field
+curl -X POST -H "Captricity-API-Token: ef17fb42fc0a47d88cd312018bfcb530" -d 'data_type=String' -d 'widget_type=Textfield' -d 'name=Test' https://shreddr.captricity.com/api/v1/sheet/70656/field/
+
+
+
+Update field
+curl -X PUT -H "Captricity-API-Token: ef17fb42fc0a47d88cd312018bfcb530" -d 'data_type=String' -d 'widget_type=Textfield' -d 'name=Test Changed Name' https://shreddr.captricity.com/api/v1/field/843572
+
+
+
+Update field to Checkboxes
+curl -X PUT -H "Captricity-API-Token: ef17fb42fc0a47d88cd312018bfcb530" -d 'data_type=String' -d 'widget_type=Checkboxes' -d 'name=Test Changed Name' -d 'categorical_constraint=A,B,C' https://shreddr.captricity.com/api/v1/field/843572
+
+
+
+Get a field with box data
+curl -X GET -H "Captricity-API-Token: ef17fb42fc0a47d88cd312018bfcb530" https://shreddr.captricity.com/api/v1/sheet/70656/field/843572
+
+
+
+Update the field's box
+!curl -X PUT -H "Captricity-API-Token: ef17fb42fc0a47d88cd312018bfcb530" -d 'x=0.5' -d 'y=0.75' -d 'h=0.03' -d 'w=0.05' https://shreddr.captricity.com/api/v1/box/849752 
+
+
+
+Delete a field
+curl -X DELETE -H "Captricity-API-Token: ef17fb42fc0a47d88cd312018bfcb530" https://shreddr.captricity.com/api/v1/field/843572

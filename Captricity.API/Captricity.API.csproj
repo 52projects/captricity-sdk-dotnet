@@ -60,6 +60,7 @@
     <Compile Include="Model\Document.cs" />
     <Compile Include="Model\Readiness.cs" />
     <Compile Include="Model\Sheet.cs" />
+    <Compile Include="Model\SheetUpload.cs" />
     <Compile Include="Model\Version.cs" />
     <Compile Include="Model\InstanceSet.cs" />
     <Compile Include="Model\Instance.cs" />

@@ -7,6 +7,8 @@ using Shouldly;
 using NUnit.Framework;
 using Captricity.API;
 using System.Configuration;
+using System.IO;
+using Captricity.API.Model;
 
 namespace Captricity.API.Tests.Integration.Instance {
     [TestFixture]
@@ -24,6 +26,22 @@ namespace Captricity.API.Tests.Integration.Instance {
             var sheets = _client.Sheets.List(documents[0].ID.ToString());
 
             sheets.Count.ShouldBeGreaterThan(0);
+        }
+
+        [Test]
+        public void integration_sheets_upload_file() {
+            var documents = _client.Documents.List();
+            var sheetFile = new SheetFileUpload();
+
+            using (FileStream fileStream = new FileStream(@"D:\dev\captricity-api-wrapper\Captricity.API.Tests\testfile.pdf", FileMode.Open, FileAccess.Read)) {
+                using (var memory = new MemoryStream()) {
+                    fileStream.CopyTo(memory);
+                    sheetFile.UploadedFile = memory.ToArray();
+                    sheetFile.DocumentID = documents[0].ID;
+
+                    _client.Sheets.Create(sheetFile);
+                }
+            }
         }
     }
 }

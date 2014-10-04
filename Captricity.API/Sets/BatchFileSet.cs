@@ -17,9 +17,9 @@ namespace Captricity.API.Sets {
         protected override string GetUrl { get { return GET_URL; } }
         protected override string GetChildListUrl { get { return GET_CHILD_LIST_URL; } }
 
-        public bool Create(int batchID, Stream file, string fileName) {
-            //return false;
-            return base.Create(file,  string.Format("{0}{1}", base.BaseUrl, string.Format(GET_CHILD_LIST_URL, batchID)), "uploaded_file", fileName);
-        }
+        //public bool Create(int batchID, Stream file, string fileName) {
+        //    //return false;
+        //    return base.Create(file,  string.Format("{0}{1}", base.BaseUrl, string.Format(GET_CHILD_LIST_URL, batchID)), "uploaded_file", fileName);
+        //}
     }
 }

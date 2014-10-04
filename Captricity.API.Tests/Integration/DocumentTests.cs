@@ -37,5 +37,29 @@ namespace Captricity.API.Tests.Integration.Instance {
             var document = _client.Documents.Get(documents[0].ID);
             document.ShouldNotBe(null);
         }
+
+        [Test]
+        public void integration_documents_create_blank_document() {
+            var document = new Model.Document();
+            document.Name = DateTime.UtcNow.Year.ToString() + DateTime.UtcNow.Month.ToString() + DateTime.UtcNow.Day.ToString() + DateTime.UtcNow.Hour.ToString() + DateTime.UtcNow.Minute.ToString() + DateTime.UtcNow.Second.ToString() + DateTime.UtcNow.Millisecond.ToString();
+            document.UserVisible = true;
+
+            var newDocument = _client.Documents.Create(document);
+
+            newDocument.ID.ShouldBeGreaterThan(0);
+        }
+
+        //[Test]
+        //public void integration_documents_update_blank_document_name() {
+        //    var document = new Model.Document();
+        //    document.Name = "test" + DateTime.UtcNow.Year.ToString() + DateTime.UtcNow.Month.ToString() + DateTime.UtcNow.Day.ToString() + DateTime.UtcNow.Hour.ToString() + DateTime.UtcNow.Minute.ToString() + DateTime.UtcNow.Second.ToString() + DateTime.UtcNow.Millisecond.ToString();
+        //    document.UserVisible = true;
+
+        //    var newDocument = _client.Documents.Create(document);
+        //    newDocument.Name = document.Name;
+
+        //    var updatedDocument = _client.Documents.Update(newDocument, newDocument.ID.ToString());
+        //    updatedDocument.Name.ShouldBe(document.Name);
+        //}
     }
 }

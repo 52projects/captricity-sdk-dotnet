@@ -36,7 +36,7 @@ namespace Captricity.API.Tests.Integration.Batch {
                     fileStream.CopyTo(memory);
                     batchFile.UploadedFile = memory.ToArray();
 
-                    _client.BatchFiles.Create(batches[0].ID, memory, "testcard.pdf");
+                    //_client.BatchFiles.Create(batches[0].ID, memory, "testcard.pdf");
                 }
             }
         }
