@@ -22,9 +22,7 @@ namespace Captricity.API.Tests.Integration {
 
         [Test]
         public void integration_fields_get_fields_for_sheet() {
-            var documents = _client.Documents.List();
-            var sheets = _client.Sheets.List(documents[0].ID.ToString());
-            var fields = _client.Fields.List(sheets[0].ID.ToString());
+            var fields = _client.Fields.List("75851");
 
             fields.Count.ShouldBeGreaterThan(0);
         }

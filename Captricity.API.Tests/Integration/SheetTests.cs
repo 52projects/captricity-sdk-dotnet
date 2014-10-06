@@ -23,7 +23,7 @@ namespace Captricity.API.Tests.Integration.Instance {
         [Test]
         public void integration_get_sheets_for_document() {
             var documents = _client.Documents.List();
-            var sheets = _client.Sheets.List(documents[0].ID.ToString());
+            var sheets = _client.Sheets.List("32789");
 
             sheets.Count.ShouldBeGreaterThan(0);
         }
@@ -33,13 +33,15 @@ namespace Captricity.API.Tests.Integration.Instance {
             var documents = _client.Documents.List();
             var sheetFile = new SheetFileUpload();
 
-            using (FileStream fileStream = new FileStream(@"D:\dev\captricity-api-wrapper\Captricity.API.Tests\testfile.pdf", FileMode.Open, FileAccess.Read)) {
+            using (FileStream fileStream = new FileStream(@"D:\dev\captricity-api-wrapper\Captricity.API.Tests\image.jpg", FileMode.Open, FileAccess.Read)) {
                 using (var memory = new MemoryStream()) {
                     fileStream.CopyTo(memory);
                     sheetFile.UploadedFile = memory.ToArray();
                     sheetFile.DocumentID = documents[0].ID;
+                    sheetFile.FileName = Guid.NewGuid().ToString();
 
-                    _client.Sheets.Create(sheetFile);
+                    var sheet = _client.Sheets.Create(sheetFile);
+                    sheet.ID.ShouldBeGreaterThan(0);
                 }
             }
         }

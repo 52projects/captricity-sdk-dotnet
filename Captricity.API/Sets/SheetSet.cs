@@ -9,7 +9,7 @@ using RestSharp;
 using System.IO;
 
 namespace Captricity.API.Sets {
-    public class SheetSet : ApiSet<Document> {
+    public class SheetSet : ApiSet<Sheet> {
         private const string GET_URL = "/v1/sheet/{0}";
         private const string CHILD_LIST_URL = "/v1/document/{0}/sheet";
         private const string CHILD_GET_URL = "/v1/document/{0}/sheet/{1}";
@@ -21,8 +21,10 @@ namespace Captricity.API.Sets {
         protected override string GetChildListUrl { get { return CHILD_LIST_URL; } }
         protected override string GetChildUrl { get { return CHILD_GET_URL; } }
 
-        public bool Create(SheetFileUpload sheetImage) {
-            return base.Create(sheetImage.UploadedFile, string.Format("{0}{1}", base.BaseUrl, string.Format(UPLOAD_SHEET_URL, sheetImage.DocumentID)), "image_file", sheetImage.FileName);
+        public Sheet Create(SheetFileUpload sheetImage) {
+            var sheetUrl = string.Format("{0}{1}", base.BaseUrl, string.Format(UPLOAD_SHEET_URL, sheetImage.DocumentID));
+            Sheet sheet = null;
+            return base.Create(sheetImage.UploadedFile, sheetUrl, "image_file", sheetImage.FileName);
         }
     }
 }
