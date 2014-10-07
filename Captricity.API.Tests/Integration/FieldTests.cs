@@ -36,5 +36,28 @@ namespace Captricity.API.Tests.Integration {
 
             field.ShouldNotBe(null);
         }
+
+        [Test]
+        public void integration_feilds_create_field_for_sheet() {
+            var sheets = _client.Sheets.List("32789");
+            var sheet = sheets[0];
+
+            var field = new Captricity.API.Model.Field() {
+                FriendlyName = "Short text",
+                WidgetType = "Textfield",
+                DataType = "String",
+                Name = "Untitled1",
+                SheetID = sheet.ID
+            };
+            field.Box = new Box {
+                H = .05674m,
+                W = .5667865m,
+                X = .02765m,
+                Y = .5762m
+            };
+
+            field = _client.Fields.Create(sheet.ID, field);
+            field.ID.ShouldBeGreaterThan(0);
+        }
     }
 }

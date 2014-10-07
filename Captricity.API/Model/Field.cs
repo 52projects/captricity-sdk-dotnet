@@ -55,5 +55,8 @@ namespace Captricity.API.Model {
         public bool EmailConstraint { get; set; }
         [DataMember(Name = "constraints")]
         public List<Constraint> Constraints { get; set; }
+
+        [DataMember(Name = "sheet_id")]
+        public int SheetID { get; set; }
     }
 }
