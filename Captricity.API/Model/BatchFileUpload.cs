@@ -8,5 +8,6 @@ namespace Captricity.API.Model {
         [DataMember(Name = "uploaded_file")]
         public byte[] UploadedFile { get; set; }
         public string FileName { get; set; }
+        public string BatchID { get; set; }
     }
 }

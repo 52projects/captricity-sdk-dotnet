@@ -14,11 +14,13 @@ namespace Captricity.API.Sets {
         private const string SUBMIT_URL = "/v1/batch/{0}/submit";
         private const string PRICE_URL = "/v1/batch/{0}/price";
         private const string READINESS_URL = "/v1/batch/{0}/readiness";
+        private const string CREATE_URL = "/v1/batch/";
 
         public BatchSet(IDictionary<string, string> headers, string baseURl) : base(headers, baseURl, ContentType.JSON) { }
 
         protected override string GetUrl { get { return GET_URL; } }
         protected override string ListUrl { get { return LIST_URL; } }
+        protected override string CreateUrl { get { return CREATE_URL; } }
 
         public Batch Get(int id, bool includePrice = false) {
             var batch = base.Get(id.ToString());
@@ -30,28 +32,22 @@ namespace Captricity.API.Sets {
             return batch;
         }
 
-        public Readiness GetBatchReadiness(int id) {
-            return base.GetBySuffixUrl<Readiness>(string.Format(READINESS_URL, id.ToString()));
+        public Readiness GetBatchReadiness(string id) {
+            return base.GetBySuffixUrl<Readiness>(string.Format(READINESS_URL, id));
         }
 
-        public bool SubmitBatch(int id) {
+        public object SubmitBatch(int id) {
             var response = base.Post(string.Format(SUBMIT_URL, id));
 
-            var readiness = Newtonsoft.Json.JsonConvert.DeserializeObject<Readiness>(response.Content);
+            var batch = Newtonsoft.Json.JsonConvert.DeserializeObject<Batch>(response.Content);
 
-            if (readiness != null) {
-                if (readiness.Errors.Count > 0) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
+            if (batch.RelatedJobID > 0) {
+                return batch;
             }
             else {
-                return true;
+                var readiness = Newtonsoft.Json.JsonConvert.DeserializeObject<Readiness>(response.Content);
+                return readiness;
             }
-
-            return false;
         }
     }
 }
