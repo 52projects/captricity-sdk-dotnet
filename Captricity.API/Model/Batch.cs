@@ -77,7 +77,7 @@ namespace Captricity.API.Model {
         public int FileCount { get; set; }
 
         [DataMember(Name = "parent_id")]
-        public int ParentID { get; set; }
+        public int? ParentID { get; set; }
 
         [DataMember(Name = "created_with")]
         public string CreatedWith { get; set; }

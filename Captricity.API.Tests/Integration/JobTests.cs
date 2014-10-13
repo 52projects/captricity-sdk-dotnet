@@ -7,6 +7,7 @@ using Shouldly;
 using NUnit.Framework;
 using Captricity.API;
 using System.Configuration;
+using System.Linq;
 
 namespace Captricity.API.Tests.Integration.Batch {
     [TestFixture]
@@ -26,18 +27,14 @@ namespace Captricity.API.Tests.Integration.Batch {
 
         [Test]
         public void integration_job_get_job() {
-            var jobs = _client.Jobs.List();
-            var job = _client.Jobs.Get(jobs[0].ID.ToString());
+            var job = _client.Jobs.Get("60464");
             job.ShouldNotBe(null);
         }
 
         [Test]
         public void integration_job_get_csv() {
-            var jobs = _client.Jobs.List();
-            var job = _client.Jobs.Get(jobs[0].ID.ToString());
-            var results = _client.Jobs.GetJobResults(job.ID);
-
-            results.ShouldNotBe(null);
+            var results = _client.Jobs.GetJobResults(60460);
+            results.Count.ShouldBe(5);
         }
     }
 }

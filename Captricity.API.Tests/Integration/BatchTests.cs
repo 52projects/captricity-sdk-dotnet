@@ -51,7 +51,7 @@ namespace Captricity.API.Tests.Integration.Batch {
         [Test]
         public void integration_bateches_get_readiness() {
             var batches = _client.Batches.List();
-            var readiness = _client.Batches.GetBatchReadiness(batches[0].ID);
+            var readiness = _client.Batches.GetBatchReadiness(batches[0].ID.ToString());
 
             readiness.ShouldNotBe(null);
         }
