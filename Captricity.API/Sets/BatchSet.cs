@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Restify;
 using Captricity.API.Model;
 using RestSharp;
+using Restify.Exceptions;
 
 namespace Captricity.API.Sets {
     public class BatchSet : ApiSet<Batch> {
@@ -33,7 +34,19 @@ namespace Captricity.API.Sets {
         }
 
         public Readiness GetBatchReadiness(string id) {
-            return base.GetBySuffixUrl<Readiness>(string.Format(READINESS_URL, id));
+            try {
+                return base.GetBySuffixUrl<Readiness>(string.Format(READINESS_URL, id));
+            }
+            catch (ApiAccessException e) {
+                if (e.StatusDescription == "NOT FOUND") {
+                    return null;
+                }
+            }
+            catch (Exception e) {
+                throw;
+            }
+
+            return null;
         }
 
         public object SubmitBatch(int id) {
