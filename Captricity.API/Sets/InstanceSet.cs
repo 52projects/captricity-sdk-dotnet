@@ -13,6 +13,7 @@ namespace Captricity.API.Sets {
         private const string GET_URL = "/v1/instance-set/{0}";
         private const string CHILD_URL = "/v1/instance-set/{0}/instance";
         private const string INSTANCE_URL = "/v1/instance/{0}";
+        private const string INSTANCE_ALIGNED_IMAGE_URL = "/v1/instance/{0}/aligned-image";
 
         public InstanceSet(IDictionary<string, string> headers, string baseURl) : base(headers, baseURl, ContentType.JSON) { }
 
@@ -29,6 +30,18 @@ namespace Captricity.API.Sets {
 
         public Instance GetInstance(int id) {
             return base.GetBySuffixUrl<Instance>(string.Format(INSTANCE_URL, id));
+        }
+
+        public byte[] GetInstanceAlignedImage(int id) {
+            var request = base.CreateRestRequest(Method.GET, string.Format(INSTANCE_ALIGNED_IMAGE_URL, id));
+
+            //var request = new RestRequest(Method.GET) {
+            //    Resource = string.Format(INSTANCE_ALIGNED_IMAGE_URL, id)
+            //};
+
+            //request.AddParameter("imagetype", imageType);
+
+            return base.GetByteArray(request);
         }
     }
 }
