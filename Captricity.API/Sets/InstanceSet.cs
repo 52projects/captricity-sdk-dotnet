@@ -19,6 +19,10 @@ namespace Captricity.API.Sets {
         protected override string GetUrl { get { return GET_URL; } }
         protected override string GetChildListUrl { get { return CHILD_LIST_URL; } }
 
+        public List<Captricity.API.Model.InstanceSet> List(int jobID) {
+            return base.ListBySuffixUrl<Captricity.API.Model.InstanceSet>(string.Format(CHILD_LIST_URL, jobID));
+        }
+
         public List<Instance> GetInstancesetInstances(int id) {
             return base.ListBySuffixUrl<Instance>(string.Format(CHILD_URL, id));
         }

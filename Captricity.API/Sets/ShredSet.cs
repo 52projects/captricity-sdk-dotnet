@@ -19,6 +19,10 @@ namespace Captricity.API.Sets {
         protected override string GetUrl { get { return GET_URL; } }
         protected override string GetChildListUrl { get { return CHILD_LIST_URL;}}
 
+        public List<Shred> List(int instanceSetID) {
+            return base.ListBySuffixUrl<Shred>(string.Format(CHILD_LIST_URL, instanceSetID));
+        }
+
         public  byte[] GetShredImage(int id, string imageType = "gif") {
             var request = new RestRequest(Method.GET) {
                 Resource = string.Format(IMAGE_URL, id)
