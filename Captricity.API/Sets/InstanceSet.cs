@@ -33,15 +33,7 @@ namespace Captricity.API.Sets {
         }
 
         public byte[] GetInstanceAlignedImage(int id) {
-            var request = base.CreateRestRequest(Method.GET, string.Format(INSTANCE_ALIGNED_IMAGE_URL, id));
-
-            //var request = new RestRequest(Method.GET) {
-            //    Resource = string.Format(INSTANCE_ALIGNED_IMAGE_URL, id)
-            //};
-
-            //request.AddParameter("imagetype", imageType);
-
-            return base.GetByteArray(request);
+            return base.GetByteArray(string.Format(INSTANCE_ALIGNED_IMAGE_URL, id));
         }
     }
 }

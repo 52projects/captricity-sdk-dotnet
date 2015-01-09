@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Captricity.API {
     public class Client {
-        private const string _apiUrl = "https://shreddr.captricity.com/api";
+        private const string _apiUrl = "http://shreddr.captricity.com/api";
         private Dictionary<string, string> _headers;
 
         #region ApiSets

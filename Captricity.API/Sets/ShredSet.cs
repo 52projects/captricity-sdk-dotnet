@@ -23,14 +23,8 @@ namespace Captricity.API.Sets {
             return base.ListBySuffixUrl<Shred>(string.Format(CHILD_LIST_URL, instanceSetID));
         }
 
-        public  byte[] GetShredImage(int id, string imageType = "gif") {
-            var request = new RestRequest(Method.GET) {
-                Resource = string.Format(IMAGE_URL, id)
-            };
-
-            request.AddParameter("imagetype", imageType);
-
-            return base.GetByteArray(request);
+        public  byte[] GetShredImage(int id) {
+            return base.GetByteArray(string.Format(IMAGE_URL, id));
         }
     }
 }

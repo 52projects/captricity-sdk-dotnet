@@ -51,5 +51,18 @@ namespace Captricity.API.Tests.Integration.Instance {
 
             instance.ShouldNotBe(null);
         }
+
+        [Test]
+        public void integration_instances_get_instance_image() {
+            var jobs = _client.Jobs.List();
+            var job = _client.Jobs.Get(jobs[0].ID.ToString());
+
+            var instanceSets = _client.InstanceSets.List(job.ID.ToString());
+
+            var instances = _client.InstanceSets.GetInstancesetInstances(instanceSets[0].ID);
+
+            var image = _client.InstanceSets.GetInstanceAlignedImage(instances[0].ID);
+            image.ShouldNotBe(null);
+        }
     }
 }
