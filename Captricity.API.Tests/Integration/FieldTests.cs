@@ -38,7 +38,7 @@ namespace Captricity.API.Tests.Integration {
         }
 
         [Test]
-        public void integration_feilds_create_field_for_sheet() {
+        public void integration_fields_create_field_for_sheet() {
             var sheets = _client.Sheets.List("32789");
             var sheet = sheets[0];
 
