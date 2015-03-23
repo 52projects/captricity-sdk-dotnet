@@ -9,9 +9,9 @@ using RestSharp;
 
 namespace Captricity.API.Sets {
     public class InstanceSet : ApiSet<Captricity.API.Model.InstanceSet> {
-        private const string CHILD_LIST_URL = "/v1/job/{0}/instance-set";
+        private const string CHILD_LIST_URL = "/v1/job/{0}/instance-set/";
         private const string GET_URL = "/v1/instance-set/{0}";
-        private const string CHILD_URL = "/v1/instance-set/{0}/instance";
+        private const string CHILD_URL = "/v1/instance-set/{0}/instance/";
         private const string INSTANCE_URL = "/v1/instance/{0}";
         private const string INSTANCE_ALIGNED_IMAGE_URL = "/v1/instance/{0}/aligned-image";
 

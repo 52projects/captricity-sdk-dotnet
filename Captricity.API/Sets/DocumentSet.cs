@@ -11,7 +11,7 @@ namespace Captricity.API.Sets {
     public class DocumentSet : ApiSet<Document> {
         private const string LIST_URL = "/v1/document";
         private const string GET_URL = "/v1/document/{0}";
-        private const string GET_DETAILS_URL = "/v1/document/{0}/deep";
+        private const string GET_DETAILS_URL = "/v1/document/{0}/deep/";
         private const string CREATE_URL = "/v1/document/";
         private const string EDIT_URL = "/v1/document/{0}";
 

@@ -10,7 +10,7 @@ using RestSharp;
 
 namespace Captricity.API.Sets {
    public class ShredSet : ApiSet<Shred> {
-        private const string CHILD_LIST_URL = "/v1/instance-set/{0}/shred";
+        private const string CHILD_LIST_URL = "/v1/instance-set/{0}/shred/";
         private const string GET_URL = "/v1/shred/{0}";
         private const string IMAGE_URL = "/v1/shred/{0}/image";
 
