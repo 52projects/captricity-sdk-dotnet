@@ -27,7 +27,7 @@ namespace Captricity.API.Tests.Integration.Batch {
 
         [Test]
         public void integration_job_get_job() {
-            var job = _client.Jobs.Get("60464");
+            var job = _client.Jobs.Get("69702");
             job.ShouldNotBe(null);
         }
 

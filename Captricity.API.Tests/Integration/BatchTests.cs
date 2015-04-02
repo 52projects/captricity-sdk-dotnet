@@ -55,5 +55,11 @@ namespace Captricity.API.Tests.Integration.Batch {
 
             readiness.ShouldNotBe(null);
         }
+
+        [Test]
+        public void integration_batches_get_specific_batch() {
+            var batch = _client.Batches.Get("69702");
+            batch.ShouldNotBe(null);
+        }
     }
 }

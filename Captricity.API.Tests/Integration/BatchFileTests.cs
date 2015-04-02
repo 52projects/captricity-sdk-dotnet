@@ -40,5 +40,17 @@ namespace Captricity.API.Tests.Integration.Batch {
                 }
             }
         }
+
+        [Test]
+        public void integration_batch_files_get_batch_files_for_batch() {
+            var batchFiles = _client.BatchFiles.List("69702");
+            batchFiles.ShouldNotBe(null);
+
+            var sb = new System.Text.StringBuilder();
+
+            foreach (var current in batchFiles.OrderBy(x => x.FileName)) {
+                sb.AppendLine(current.FileName);
+            }
+        }
     }
 }
