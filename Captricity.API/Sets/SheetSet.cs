@@ -23,7 +23,6 @@ namespace Captricity.API.Sets {
 
         public Sheet Create(SheetFileUpload sheetImage) {
             var sheetUrl = string.Format("{0}{1}", base.BaseUrl, string.Format(UPLOAD_SHEET_URL, sheetImage.DocumentID));
-            Sheet sheet = null;
             return base.Create(sheetImage.UploadedFile, sheetUrl, "image_file", sheetImage.FileName);
         }
     }
