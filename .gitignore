@@ -56,8 +56,12 @@ ipch/
 _ReSharper*
 
 # NCrunch
-*.ncrunch*
+_NCrunch_*
 .*crunch*.local.xml
+nCrunchTemp_*
+*.ncrunchsolution
+*.ncrunchsolution.*
+*.ncrunchproject
 
 # Installshield output folder 
 [Ee]xpress
@@ -78,8 +82,14 @@ publish
 # Publish Web Output
 *.Publish.xml
 
-# NuGet Packages Directory
-packages
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
 
 # Windows Azure Build Output
 csx
@@ -108,6 +118,12 @@ Backup*/
 UpgradeLog*.XML
 *.DS_Store
 
-# NCrunch
-*.ncrunch*
-.*crunch*.local.xml
+web/MissionTrips.Web/config.codekit
+web/MissionTrips.Web/assets/css/.sass-cache/1afcc90758de4e8aa0352fcc531be4f394df7b15/theme-default.scssc
+
+*.suo
+*.pdb
+*.suo
+*.dacpac
+*.dbmdl
+*.orig
