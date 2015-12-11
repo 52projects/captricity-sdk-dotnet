@@ -1,20 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captricity.API", "Captricity.API\Captricity.API.csproj", "{A9722D9E-A548-4125-AB36-D91C2B9077CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captricity.API.Tests", "Captricity.API.Tests\Captricity.API.Tests.csproj", "{5EE83CB9-8E0E-407D-B9C7-892C388C454F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1C8429F2-EFB0-4E9D-BA9E-13110A4D4074}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restify", "..\restify\Restify\Restify.csproj", "{1F97B86F-D2E6-43F4-9595-D01859A357D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +26,6 @@ Global
 		{5EE83CB9-8E0E-407D-B9C7-892C388C454F}.DevAzure|Any CPU.Build.0 = Debug|Any CPU
 		{5EE83CB9-8E0E-407D-B9C7-892C388C454F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE83CB9-8E0E-407D-B9C7-892C388C454F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.DevAzure|Any CPU.ActiveCfg = DevAzure|Any CPU
-		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.DevAzure|Any CPU.Build.0 = DevAzure|Any CPU
-		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
