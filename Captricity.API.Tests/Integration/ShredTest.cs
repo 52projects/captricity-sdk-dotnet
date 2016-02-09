@@ -41,5 +41,10 @@ namespace Captricity.API.Tests.Integration.Shred {
 
             var shhredImage = _client.Shreds.GetShredImage(shreds[0].ID);
         }
+
+        [Test]
+        public void integration_shred_get_specific_shred_image() {
+            var shredImage = _client.Shreds.GetShredImage(280563670);
+        }
     }
 }

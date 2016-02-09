@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Restify;
+
 using Captricity.API.Model;
 using RestSharp;
-using Restify.Exceptions;
+using Captricity.API.Exceptions;
 
 namespace Captricity.API.Sets {
     public class BatchSet : ApiSet<Batch> {

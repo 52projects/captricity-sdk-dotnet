@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Restify;
 using Captricity.API.Model;
 using System.IO;
+using Captricity.API;
 
 namespace Captricity.API.Sets {
     public class BatchFileSet : ApiSet<BatchFile> {

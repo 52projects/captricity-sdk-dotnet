@@ -31,13 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FiftytwoProjects.Restify, Version=1.1.34.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FiftytwoProjects.Restify.1.1.34\lib\net40\FiftytwoProjects.Restify.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\focus\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\focus\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
@@ -47,6 +43,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,8 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\QOAttribute.cs" />
+    <Compile Include="Bases\BaseApiSet.cs" />
+    <Compile Include="Bases\BaseClient.cs" />
+    <Compile Include="Bases\BaseQO.cs" />
+    <Compile Include="Bases\OAuthTicket.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Enum\ApiResourceActions.cs" />
+    <Compile Include="Exceptions\BaseExcpetion.cs" />
+    <Compile Include="Exceptions\PropertyNotAllowedException.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Model\ApiResource.cs" />
     <Compile Include="Model\Batch.cs" />
     <Compile Include="Model\BatchFile.cs" />
@@ -74,6 +79,7 @@
     <Compile Include="Model\Shred.cs" />
     <Compile Include="Model\Job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sets\ApiSet.cs" />
     <Compile Include="Sets\BatchFileSet.cs" />
     <Compile Include="Sets\BatchSet.cs" />
     <Compile Include="Sets\BoxSet.cs" />
