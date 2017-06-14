@@ -49,8 +49,15 @@ namespace Captricity.API.Sets {
             return null;
         }
 
-        public object SubmitBatch(int id) {
-            var response = base.Post(string.Format(SUBMIT_URL, id));
+        public object SubmitBatch(int id, int? sla = null) {
+            IRestResponse response = null;
+
+            if (sla.HasValue) {
+                response = base.Post(string.Format(SUBMIT_URL, id), "{\"sla_in_seconds\": " + sla.Value + "}");
+            }
+            else {
+                response = base.Post(string.Format(SUBMIT_URL, id));
+            }
 
             var batch = Newtonsoft.Json.JsonConvert.DeserializeObject<Batch>(response.Content);
 

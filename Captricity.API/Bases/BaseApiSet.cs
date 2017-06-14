@@ -187,6 +187,19 @@ namespace Captricity.API {
             return response;
         }
 
+        public virtual IRestResponse Post(string url, string jsonObject) {
+            var request = CreateRestRequest(Method.POST, url);
+            request.AddParameter("application/json", jsonObject, ParameterType.RequestBody);
+            var client = new RestSharp.RestClient(_baseUrl);
+
+            if (_ticket != null) {
+                client.Authenticator = OAuth1Authenticator.ForProtectedResource(_ticket.ConsumerKey, _ticket.ConsumerSecret, _ticket.AccessToken, _ticket.AccessTokenSecret);
+            }
+            var response = client.Execute(request);
+
+            return response;
+        }
+
         public virtual bool Create(byte[] stream, string url = "") {
             var targetUrl = string.Empty;
             if (!string.IsNullOrWhiteSpace(url)) {
