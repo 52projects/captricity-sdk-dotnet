@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace Captricity.Api.NetCore {
-    public class Client {
+    public class CaptricityClient {
         private const string _apiUrl = "https://shreddr.captricity.com/api";
         private Dictionary<string, string> _headers;
 
@@ -114,7 +114,7 @@ namespace Captricity.Api.NetCore {
         /// </summary>
         /// <param name="apiToken">The API token provided by Captricity</param>
         /// <param name="userAgent">The Application user agent found https://shreddr.captricity.com/developer </param>
-        public Client(string apiToken, string userAgent) {
+        public CaptricityClient(string apiToken, string userAgent) {
             _headers = new Dictionary<string,string>();
             _headers.Add("User-Agent", userAgent);
             _headers.Add("Captricity-API-Token", apiToken);
