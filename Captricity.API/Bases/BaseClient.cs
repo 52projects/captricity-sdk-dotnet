@@ -4,8 +4,8 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Collections.Generic;
-using RestSharp.Extensions.MonoHttp;
 using Captricity.API.Exceptions;
+using System.Web;
 
 namespace Captricity.API {
     public class BaseClient {
@@ -148,7 +148,7 @@ namespace Captricity.API {
                 };
             }
             else {
-                var qs = RestSharp.Extensions.MonoHttp.HttpUtility.ParseQueryString(response.Content);
+                var qs = HttpUtility.ParseQueryString(response.Content);
                 ticket.AccessToken = qs["oauth_token"];
                 ticket.AccessTokenSecret = qs["oauth_token_secret"];
 
